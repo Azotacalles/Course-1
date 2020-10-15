@@ -10,17 +10,18 @@ namespace Task1
     {
         static void Main(string[] args)
         {
+            //Родыгин
             //а) Дописать структуру Complex, добавив метод вычитания комплексных чисел. Продемонстрировать работу структуры.
             //б) Дописать класс Complex, добавив методы вычитания и произведения чисел. Проверить работу класса.
             //в) Добавить диалог с использованием switch демонстрирующий работу класса.
-            Complex number1 = new Complex(5.456, 2.123);
-            Complex result = number1.Sub(new Complex(3.123, 1.456));
+            Complex number1 = new Complex(5, 2);
+            Complex result = number1.Sub(new Complex(5, 2));
             Console.WriteLine($"Struct result: {result}");
 
             ComplexClass number2 = new ComplexClass(5, 2);
-            ComplexClass resultClass = number2.Sub(new ComplexClass(3, 1));
+            ComplexClass resultClass = number2.Sub(new ComplexClass(5, 1));
             Console.WriteLine($"Class Sub result: {resultClass}");
-            resultClass = number2.Multi(new ComplexClass(3, 1));
+            resultClass = number2.Multi(new ComplexClass(4, 0));
             Console.WriteLine($"Class Multi result: {resultClass}");
 
             ComplexClass num1 = new ComplexClass();
@@ -65,8 +66,8 @@ namespace Task1
 
     struct Complex
     {
-        public double im; //мнимая
         public double re; //действительная
+        public double im; //мнимая
 
         public Complex(double re, double im)
         {
@@ -77,42 +78,49 @@ namespace Task1
         public Complex Sub(Complex x)   //Задание А
         {
             Complex y;
-            y.im = im - x.im;
             y.re = re - x.re;
+            y.im = im - x.im;
             return y;
         }
 
         public Complex Plus(Complex x)
         {
             Complex y;
-            y.im = im + x.im;
             y.re = re + x.re;
+            y.im = im + x.im;
             return y;
         }
 
         public Complex Multi(Complex x)
         {
             Complex y;
-            y.im = re * x.im + im * x.re;
             y.re = re * x.re - im * x.im;
+            y.im = re * x.im + im * x.re;
             return y;
         }
 
         public override string ToString()
         {
-            return re + " + " + im + "i";
+            if (re == 0)
+            {
+                if (im == 0) return "0";
+                else return im + "i";
+            }
+            if (im < 0) return re + " - " + (-im) + "i";
+            else if (im == 0) return re.ToString();
+            else return re + " + " + im + "i";
         }
     }
 
     class ComplexClass
     {
-        private double im;
         private double re;
-
+        private double im;
+        
         public ComplexClass()
         {
-            im = 0;
             re = 0;
+            im = 0;
         }
 
         public ComplexClass(double re, double im)
@@ -140,9 +148,9 @@ namespace Task1
         public ComplexClass Plus(ComplexClass x)
         {
             ComplexClass y = new ComplexClass();
-            y.im = x.im + im;
-            y.re = x.re + re;
-            return x;
+            y.re = re + x.re;
+            y.im = im + x.im;
+            return y;
         }
         public double Im
         {
@@ -157,7 +165,14 @@ namespace Task1
         }
         public override string ToString()
         {
-            return re + " + " + im + "i";
+            if (re == 0)
+            {
+                if (im == 0) return "0";
+                else return im + "i";
+            }
+            if (im < 0) return re + " - " + (-im) + "i";
+            else if (im == 0) return re.ToString();
+            else return re + " + " + im + "i";
         }
     }
 
