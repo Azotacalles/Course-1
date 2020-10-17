@@ -141,6 +141,14 @@ namespace Task3
             return res;
         }
 
+        /// <summary>
+        /// Приведение дроби к общему знаменателю
+        /// </summary>
+        /// <param name="frac1">Дробь 1</param>
+        /// <param name="frac2">Дробь 2</param>
+        /// <param name="numerator1">Новый числитель 1 дроби</param>
+        /// <param name="numerator2">Новый числитель 2 дроби</param>
+        /// <param name="varLCM">НОК</param>
         private void CountNumeratorAndDenominator(Fraction frac1, Fraction frac2, out int numerator1, out int numerator2, out int varLCM)
         {
             varLCM = LCM(frac1.denominator, frac2.denominator);
