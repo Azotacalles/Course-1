@@ -95,6 +95,11 @@ namespace Task3
             database[(int)nudNumber.Value - 1].trueFalse = cboxTrue.Checked;
         }
 
+        /// <summary>
+        /// Кнопка Save As
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void miSaveAs_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
@@ -105,6 +110,11 @@ namespace Task3
             };
         }
 
+        /// <summary>
+        /// Кнопка Info в меню
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();

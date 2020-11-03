@@ -33,6 +33,9 @@ namespace Task3
             set { fileName = value; }
         }
 
+        /// <summary>
+        /// Чтобы получить текущий список вопросов
+        /// </summary>
         public List<Question> List
         {
             get { return list; }
@@ -71,6 +74,10 @@ namespace Task3
             fStream.Close();
         }
 
+        /// <summary>
+        /// Для кнопки Save As
+        /// </summary>
+        /// <param name="list">Текущий список вопросов</param>
         public void SaveAs(List<Question> list)
         {
             XmlSerializer xmlFormat = new XmlSerializer(typeof(List<Question>));
