@@ -13,8 +13,7 @@ namespace Task4
         public string genre;  // Жанр
         public int year;      // Год
         public Film()
-        {
-        }
+        {}
         public Film(string name, string genre, int year)
         {
             this.name = name;
@@ -47,7 +46,6 @@ namespace Task4
         }
         public void Remove(int index)
         {
-
             if (list != null && index < list.Count && index >= 0) list.RemoveAt(index);
         }
         
